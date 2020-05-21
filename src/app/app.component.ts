@@ -22,6 +22,13 @@ export class AppComponent {
     localStorage.clear();
     this.router.navigate(['login']);
   }
+  esconderBarra() {
+    if (localStorage.getItem('token') !== null && localStorage.getItem('token').toString().trim() !== null) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 }
 
 

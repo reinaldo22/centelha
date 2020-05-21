@@ -40,8 +40,21 @@
     <div class="form-group col-md-3">
       <label for="cpf">CPF </label>
       <span style="color:red; font-size: 23px;" *ngIf="cpfValidate.invalid"> *</span>
-      <input type="text" [brmasker]="{person: true}" class="form-control" id="cpf" [(ngModel)]="usuario.cpf" #cpfValidate="ngModel" name="cpf"
-        required="true" autocomplete="false">
+      <input type="text" [brmasker]="{person: true}" class="form-control" id="cpf" [(ngModel)]="usuario.cpf"
+        #cpfValidate="ngModel" name="cpf" required="true" autocomplete="false">
+    </div>
+
+    <div class="form-group" col-md-3>
+      <label for="dataNascimento">Data Nasc.</label>
+      <span style="color:red; font-size: 23px;"> *</span>
+      <div class="input-group">
+        <input type="text" name="dataNascimento" class="form-control" placeholder="dd/mm/yyyy" ngbDatepicker
+          #dataNascimento="ngbDatepicker" [(ngModel)]="usuario.dataNascimento" id="dataNascimento" required=true>
+        <div class="input-group-append">
+          <button class="btn btn-primary" (click)="dataNascimento.toggle()" type="button">buscar</button>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -52,7 +65,8 @@
     <div class="card-body" style="padding-left: 10px;">
       <div class="form-row">
         <div class="form-group col-md-3">
-          <input type="text" [brmasker]="{phone: true}"  class="form-control" [(ngModel)]="telefone.numero" id="numero" name="numero">
+          <input type="text" [brmasker]="{phone: true}" class="form-control" [(ngModel)]="telefone.numero" id="numero"
+            name="numero">
         </div>
 
         <div class="form-group col-md-2">
