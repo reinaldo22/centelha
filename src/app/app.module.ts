@@ -14,6 +14,12 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { BrMaskerModule } from 'br-mask';
 import { GuardiaoGuard } from './service/guardiao.guard';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { registerLocaleData, DatePipe } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+import { LOCALE_ID } from '@angular/core';
+registerLocaleData(localePt);
+
+
 
 export const appRouters: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [GuardiaoGuard] },
@@ -46,7 +52,9 @@ export const routes: ModuleWithProviders = RouterModule.forRoot(appRouters);
     NgxPaginationModule,
     NgbModule
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pt' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

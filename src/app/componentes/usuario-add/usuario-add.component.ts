@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { NgbDateParserFormatter, NgbDateStruct, NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap';
 
+
 @Injectable()
 export class FormateAdapter extends NgbDateAdapter<string> {
 
@@ -29,7 +30,6 @@ export class FormateAdapter extends NgbDateAdapter<string> {
 
 }
 
-
 /*implementa a uma classe de formatação de data*/
 @Injectable()
 export class FormaTadata extends NgbDateParserFormatter {
@@ -52,9 +52,9 @@ export class FormaTadata extends NgbDateParserFormatter {
   format(date: NgbDateStruct): string | null {
     return date ? date.day + this.DELIMITER + date.month + this.DELIMITER + date.year : '';
   }
-  toModel(date: NgbDateStruct | null): string | null {
+  /*toModel(date: NgbDateStruct | null): string | null {
     return date ? date.day + this.DELIMITER + date.month + this.DELIMITER + date.year : null;
-  }
+  }*/
 
 }
 
@@ -64,7 +64,8 @@ export class FormaTadata extends NgbDateParserFormatter {
   templateUrl: './usuario-add.component.html',
   styleUrls: ['./usuario-add.component.css'],
   providers: [{ provide: NgbDateParserFormatter, useClass: FormaTadata },
-  { provide: NgbDateAdapter, useClass: FormateAdapter }]
+  { provide: NgbDateAdapter, useClass: FormateAdapter },
+  ]
 })
 export class UsuarioAddComponent implements OnInit {
 
