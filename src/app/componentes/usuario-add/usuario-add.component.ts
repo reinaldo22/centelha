@@ -1,3 +1,4 @@
+import { Profissao } from './../../model/profissao';
 import { Usuario } from './../../model/usuario';
 import { Component, OnInit, Injectable } from '@angular/core';
 import { Telefone } from 'src/app/model/telefone';
@@ -72,10 +73,17 @@ export class UsuarioAddComponent implements OnInit {
 
   usuario = new Usuario();
   telefone = new Telefone();
+  profissoes = new Profissao();
 
   constructor(private routeActive: ActivatedRoute, private userService: UsuarioService) { }
   /*Carrega a pagina e se caso tenha algum id na url*/
   ngOnInit() {
+
+    this.userService.getProfissaoList().subscribe(data => {
+      this.profissoes = data;
+
+    });
+
     const id = this.routeActive.snapshot.paramMap.get('id');
 
     if (id != null) {
@@ -129,5 +137,6 @@ export class UsuarioAddComponent implements OnInit {
     this.usuario = new Usuario();
     this.telefone = new Telefone();
   }
+
 
 }

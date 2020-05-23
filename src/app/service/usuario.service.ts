@@ -52,4 +52,9 @@ export class UsuarioService {
 
     return this.http.delete(AppConstants.baseUrl + 'removeTelefone/' + id, { responseType: 'text' });
   }
+
+  getProfissaoList(): Observable<any> {
+
+    return this.http.get<any>(AppConstants.getBaseUrlPath + 'profissao/');
+  }
 }
