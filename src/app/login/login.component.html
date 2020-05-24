@@ -19,7 +19,10 @@
       </div>
 
       <br>
-      <button type="button" [disabled]="email.invalid || senha.invalid" class="btn btn-lg btn-primary btn-block"(click)="login()"> Acessar </button>
+      <button type="button" [disabled]="email.invalid || senha.invalid" class="btn  btn-primary btn-block"
+        (click)="login()"> Acessar </button>
+      <br>
+      <button type="button" style="margin-bottom: 30px;" [disabled]="email.invalid" class="btn btn-primary" (click)="recuperar();"> Recuperar Login </button>
     </div>
   </form>
 </div>

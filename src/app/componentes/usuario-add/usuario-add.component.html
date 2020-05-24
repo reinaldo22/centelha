@@ -64,9 +64,16 @@
         <option [ngValue]="p.id" *ngFor="let p of profissoes">{{p.descricao}}</option>
       </select>
     </div>
+
+    <div class="form-group col-md-3">
+      <label for="salario">Salário</label>
+      <span style="color:red; font-size:23px;"> *</span>
+      <input [(ngModel)]="usuario.salario" class="form-control" name="salario" id="salario"
+        currencyMask [options]="{prefix: 'R$', thousands: '.', decimal:','}">
+    </div>
   </div>
 
-  <div class="card shadow mb-2">
+  <div class="card shadow mb-5">
     <div class="card text-center">
       <h3>Telefone Contato</h3>
     </div>

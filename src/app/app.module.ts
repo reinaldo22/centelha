@@ -1,3 +1,4 @@
+import { NgxCurrencyModule } from 'ngx-currency';
 import { UsuarioAddComponent } from './componentes/usuario-add/usuario-add.component';
 import { UsuarioComponent } from './componentes/usuario.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -17,6 +18,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { registerLocaleData, DatePipe } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { LOCALE_ID } from '@angular/core';
+import '@angular/localize/init';
 registerLocaleData(localePt);
 
 
@@ -50,7 +52,8 @@ export const routes: ModuleWithProviders = RouterModule.forRoot(appRouters);
     HttpInterceptorModule,
     BrMaskerModule,
     NgxPaginationModule,
-    NgbModule
+    NgbModule,
+    NgxCurrencyModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' }
