@@ -84,7 +84,7 @@ export class UsuarioAddComponent implements OnInit {
 
     });
 
-    const id = this.routeActive.snapshot.paramMap.get('id');
+    let id = this.routeActive.snapshot.paramMap.get('id');
 
     if (id != null) {
       this.userService.buscaPorId(id).subscribe(data => {
