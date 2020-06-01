@@ -57,4 +57,10 @@ export class UsuarioService {
 
     return this.http.get<any>(AppConstants.getBaseUrlPath + 'profissao/');
   }
+
+  relatorioDownload() {
+    return this.http.get(AppConstants.baseUrl + 'relatorio', { responseType: 'text' }).subscribe(data => {
+      document.querySelector('iframe').src = data;
+    });
+  }
 }

@@ -8,6 +8,10 @@
 
   <button type="button" [routerLink]="['/usuariosAdd']" routerLinkActive="router-link-active" style="margin-left: 5px;"
     class="btn btn-success mb-2">Novo</button>
+  <br>
+
+  <button (click)="imprimeRelatyorio()" type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#myModal" style="margin-left: 5px;"> PDF</button>
+
 </form>
 
 <!-- DataTales Example -->
@@ -54,7 +58,10 @@
             <td>{{user.cpf}}</td>
             <td> <button (click)="deleteUsuario(user.id, i)" class="btn btn-danger">Excluir</button> </td>
             <td> <button [routerLink]="['/usuariosAdd', user.id]" routerLinkActive="router-link-active"class="btn btn-warning">Editar</button> </td>
+
+
           </tr>
+
           <tr>
         </tbody>
       </table>
@@ -101,3 +108,18 @@
 
 </div>
 <!-- End of Content Wrapper -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="min-width: 90%; min-height: 90%; height: 90%;">
+    <div class="modal-content">
+      <div class="modal-body">
+        <iframe id="pdf" width="100%" height="500" frameborder="0" allowtransparency="true"></iframe>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
