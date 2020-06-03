@@ -19,6 +19,8 @@ import { registerLocaleData, DatePipe } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
 import { LOCALE_ID } from '@angular/core';
 import '@angular/localize/init';
+import { ChartsModule } from 'ng2-charts';
+import { BarChartComponent } from './componentes/bar-chart/bar-chart.component';
 registerLocaleData(localePt);
 
 
@@ -30,7 +32,7 @@ export const appRouters: Routes = [
   { path: 'usuarios', component: UsuarioComponent, canActivate: [GuardiaoGuard] },
   { path: 'usuariosAdd', component: UsuarioAddComponent, canActivate: [GuardiaoGuard] },
   { path: 'usuariosAdd/:id', component: UsuarioAddComponent, canActivate: [GuardiaoGuard] },
-
+  { path: 'chart', component: BarChartComponent, canActivate: [GuardiaoGuard] },
 
 ];
 export const routes: ModuleWithProviders = RouterModule.forRoot(appRouters);
@@ -41,7 +43,8 @@ export const routes: ModuleWithProviders = RouterModule.forRoot(appRouters);
     LoginComponent,
     HomeComponent,
     UsuarioComponent,
-    UsuarioAddComponent
+    UsuarioAddComponent,
+    BarChartComponent
 
   ],
   imports: [
@@ -53,7 +56,8 @@ export const routes: ModuleWithProviders = RouterModule.forRoot(appRouters);
     BrMaskerModule,
     NgxPaginationModule,
     NgbModule,
-    NgxCurrencyModule
+    NgxCurrencyModule,
+    ChartsModule
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt' }
